@@ -13,7 +13,7 @@ import static org.easymock.EasyMock.*;
  * @date 11/30/13
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-public class InjestTest {
+public class InjestJobTest {
 
     @Test
     public void injestLocalFile() throws Exception {
