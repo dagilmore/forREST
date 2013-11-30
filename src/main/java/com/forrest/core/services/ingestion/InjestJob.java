@@ -4,14 +4,14 @@ package com.forrest.core.services.ingestion;
  * @author David Gilmore
  * @date 11/30/13
  */
-public class Injest {
+public class InjestJob {
 
-    public void createExternalHiveTable(String filePath, String delimiter) {
+
+    public void injestLocalFile(String file) {
 
 
 
     }
-
 
 
 }
