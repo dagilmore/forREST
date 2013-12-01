@@ -1,0 +1,25 @@
+----------------------------------------------------------------
+2013-12-01 02:21:32.555 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.4.2.0 - (689064): instance a816c00e-0142-abf5-f401-00000540abb8
+on database directory /Users/atrask/Dropbox/ForRest/TempStatsStore  
+
+Database Class Loader started - derby.database.classpath=''
+
+2013-12-01 02:21:33.263 GMT:
+Shutting down instance a816c00e-0142-abf5-f401-00000540abb8
+----------------------------------------------------------------
+----------------------------------------------------------------
+2013-12-01 02:21:34.657 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.4.2.0 - (689064): instance 08264012-0142-abf5-f401-00000540abb8
+on database directory /Users/atrask/Dropbox/ForRest/TempStatsStore  
+
+Database Class Loader started - derby.database.classpath='----------------------------------------------------------------
+2013-12-01 02:21:37.072 GMT:
+ Booting Derby version The Apache Software Foundation - Apache Derby - 10.4.2.0 - (689064): instance d2c8c143-0142-abbe-e9d3-000006954240
+on database directory /Users/atrask/Dropbox/ForRest/TempStatsStore  
+
+Database Class Loader started - derby.database.classpath=''
+
+2013-12-01 02:21:37.236 GMT:
+Shutting down instance d2c8c143-0142-abbe-e9d3-000006954240
+----------------------------------------------------------------
