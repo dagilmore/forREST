@@ -5,12 +5,9 @@ import au.com.bytecode.opencsv.CSVReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-=======
->>>>>>> 3ede43666ac9e9310c21f8dffbb1612370a54b12
 
 /**
  * @author David Gilmore
@@ -19,7 +16,6 @@ import java.util.List;
 public class InjestJob {
 
 
-<<<<<<< HEAD
     public InjestJob() {
 
     }
@@ -85,18 +81,11 @@ public class InjestJob {
 
             System.out.println(fileTypes);
 
-=======
-    public void injestLocalFile(String file) {
-        try {
-            CSVReader reader = new CSVReader(new FileReader(file));
-            reader.readAll();
->>>>>>> 3ede43666ac9e9310c21f8dffbb1612370a54b12
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-<<<<<<< HEAD
 
         }
 
@@ -115,9 +104,6 @@ public class InjestJob {
         else
             return "INT";
 
-=======
-        }
->>>>>>> 3ede43666ac9e9310c21f8dffbb1612370a54b12
     }
 
 
