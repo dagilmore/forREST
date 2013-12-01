@@ -1,7 +1,6 @@
 package com.forrest.core.services.ingestion;
 
 import au.com.bytecode.opencsv.CSVReader;
-import com.forrest.core.repositories.HiveRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -9,9 +8,7 @@ import org.springframework.stereotype.Service;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * @author David Gilmore
@@ -21,20 +18,12 @@ import java.util.List;
 public class InjestJob {
 
     @Autowired
-    JdbcTemplate hiveTemplate;
-
-
-    public InjestJob() {
-
-    }
+    private JdbcTemplate hiveTemplate;
 
     public boolean injestLocalFile(String file) throws FileNotFoundException, IOException {
-
         injestCSV(file);
         return true;
-
     }
-
 
     public void injestCSV(String file) {
 
@@ -46,16 +35,16 @@ public class InjestJob {
             columnNames.add("col" + i);
         }
 
-        String query = getHiveFlatTableCreationQueryExternal(columnNames, fileTypes, file, "default","testTable","\\n",",");
+        String query = getHiveFlatTableCreationQueryExternal(
+                columnNames, fileTypes, file, "default","testTable","\\n",",");
 
         System.out.println("Query:" + query);
 
         hiveTemplate.execute(query);
-
-
     }
 
-    public String getHiveFlatTableCreationQueryExternal(LinkedList<String> names, LinkedList<String> types, String file, String database, String tableName, String rowDelimiter, String colDelmiter) {
+    public String getHiveFlatTableCreationQueryExternal(LinkedList<String> names, LinkedList<String> types, String file,
+        String database, String tableName, String rowDelimiter, String colDelmiter) {
 
         String query = "CREATE EXTERNAL TABLE " + tableName + "_external (";
 
@@ -65,12 +54,20 @@ public class InjestJob {
 
         query = query.substring(0,query.length() - 1);
 
-        String abbreviatedLocation = file.substring(0,file.lastIndexOf("/"));
+        String abbreviatedLocation;
+        try {
+            abbreviatedLocation = file.substring(0,file.lastIndexOf("/"));
+        }
+        catch (StringIndexOutOfBoundsException e) {
+            abbreviatedLocation = "/";
+        }
         System.out.println("Abbreviated Location:" + abbreviatedLocation);
 
-        query += ") ROW FORMAT DELIMITED FIELDS TERMINATED BY '" + colDelmiter + "' LINES TERMINATED BY '" + rowDelimiter + "' LOCATION '" + abbreviatedLocation + "'; ";
+        query += ") ROW FORMAT DELIMITED FIELDS TERMINATED BY '" + colDelmiter +
+                "' LINES TERMINATED BY '" + rowDelimiter + "' LOCATION '" + abbreviatedLocation + "'; ";
 
-        query += "CREATE TABLE " + tableName + " AS SELECT * FROM " + tableName + "_external WHERE instr(INPUT__FILE__NAME,'"+file+"')!=0; DROP TABLE " + tableName + "_external;";
+        query += "CREATE TABLE " + tableName + " AS SELECT * FROM " + tableName +
+                "_external WHERE instr(INPUT__FILE__NAME,'" + file + "')!=0; DROP TABLE " + tableName + "_external;";
 
         return query;
 
@@ -96,7 +93,7 @@ public class InjestJob {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
 
         }
 
@@ -106,7 +103,8 @@ public class InjestJob {
 
     public String getType(String value) {
 
-        if (value.toLowerCase().equals("true") || value.toLowerCase().equals("false") || value.toLowerCase().equals("t") || value.toLowerCase().equals("f"))
+        if (value.toLowerCase().equals("true") || value.toLowerCase().equals("false")
+                || value.toLowerCase().equals("t") || value.toLowerCase().equals("f"))
             return "BOOLEAN";
         else if ((!value.matches(".*\\d.*")) || value.matches(".*[A-Z].*") || value.matches(".*[a-z].*"))
             return "STRING";
@@ -117,5 +115,11 @@ public class InjestJob {
 
     }
 
+    public JdbcTemplate getHiveTemplate() {
+        return hiveTemplate;
+    }
 
+    public void setHiveTemplate(JdbcTemplate hiveTemplate) {
+        this.hiveTemplate = hiveTemplate;
+    }
 }

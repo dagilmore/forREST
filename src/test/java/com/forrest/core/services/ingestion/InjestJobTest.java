@@ -1,20 +1,22 @@
 package com.forrest.core.services.ingestion;
 
-import au.com.bytecode.opencsv.CSVReader;
-
-import org.junit.Before;
 import com.forrest.config.StandaloneConfig;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
+import org.springframework.test.util.ReflectionTestUtils;
 
-import java.io.FileReader;
+import java.io.File;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
-
-import static org.easymock.EasyMock.*;
 
 /**
  * @author David Gilmore
@@ -24,38 +26,45 @@ import static org.easymock.EasyMock.*;
 @ContextConfiguration(classes = StandaloneConfig.class, loader = AnnotationConfigContextLoader.class)
 public class InjestJobTest {
 
-    private InjestJob job;
+    @Autowired
+    public InjestJob job;
 
+
+    private static final String testPath = "unittest.tmp";
 
     @Before
-    public void setup() {
-        job = new InjestJob();
+    public void setUp() {
 
     }
 
-    @Test
+    @After
+    public void tearDown() {
+        new File(testPath).delete();
+    }
+
+
+    @Test //TODO: More robust test coverage
     public void injestLocalFile() throws Exception {
 
-        if (job.injestLocalFile("/Users/atrask/Dropbox/ForRest/src/test/resources/data/test.csv"))
-            assert true;
-        else
-            assert false;
+        PrintWriter out = new PrintWriter(testPath);
+
         List<String[]> returnData = new LinkedList<String[]>();
 
         for(int i = 0;i<10;i++) {
-            String[] line = new String[] {"andrew,", "david", "patrick"};
-            returnData.add(i,line);
+            String line = "0.3,test string,true\n";
+            out.write(line);
         }
+        out.close();
 
-        CSVReader csvReader = createMock(CSVReader.class);
-        FileReader fileReader = createMock(FileReader.class);
+        JdbcTemplate jdbcTemplateMock = Mockito.mock(JdbcTemplate.class);
+        ReflectionTestUtils.setField(job, "hiveTemplate", jdbcTemplateMock);
+        Mockito.verify(jdbcTemplateMock,Mockito.times(1));
+    }
 
-        expect(csvReader.readAll()).andReturn(returnData);
-
-        replay(csvReader);
-
-
-        verify(csvReader);
+    @Test
+    public void testGetHiveFlatTableCreationQueryExternal() {
+        //TODO
+        assert true;
     }
 
     @Test
