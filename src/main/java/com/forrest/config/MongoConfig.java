@@ -1,4 +1,4 @@
-package com.forrest.web.config;
+package com.forrest.config;
 
 import com.google.code.morphia.Datastore;
 import com.google.code.morphia.Morphia;
