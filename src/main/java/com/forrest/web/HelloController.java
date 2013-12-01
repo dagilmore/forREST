@@ -10,18 +10,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/")
 public class HelloController {
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value="hello", method = RequestMethod.GET)
 	public String printWelcome(ModelMap model) {
 		model.addAttribute("message", "Hello world!");
 		return "hello";
 	}
 
     @ResponseBody
-    @RequestMapping(value="/injest/", method=RequestMethod.GET)
+    @RequestMapping(value="injest", method=RequestMethod.GET)
     public String injest(ModelMap model) {
-
-
-
         return "hello";
     }
 

@@ -8,7 +8,7 @@
     <name>ForRest</name>
 
     <properties>
-        <spring.version>3.2.0.RELEASE</spring.version>
+        <spring.version>3.2.4.RELEASE</spring.version>
         <hadoop.version>1.0.4</hadoop.version>
         <hive.version>0.11.0</hive.version>
         <spring.hadoop.version>1.0.0.RELEASE</spring.hadoop.version>
@@ -29,14 +29,15 @@
 
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
+
 
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
-            <version>2.1</version>
+            <version>2.0</version>
             <scope>provided</scope>
         </dependency>
 
@@ -44,6 +45,19 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>asm</groupId>
+            <artifactId>asm-all</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <!-- JavaConfig need this library -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2.2</version>
         </dependency>
 
         <!-- Testing -->
