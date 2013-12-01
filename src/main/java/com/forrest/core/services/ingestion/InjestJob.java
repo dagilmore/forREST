@@ -1,6 +1,9 @@
 package com.forrest.core.services.ingestion;
 
 import au.com.bytecode.opencsv.CSVReader;
+import com.forrest.core.repositories.HiveRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,6 +17,9 @@ import java.util.List;
  * @date 11/30/13
  */
 public class InjestJob {
+
+    @Autowired
+    JdbcTemplate hiveTemplate;
 
 
     public InjestJob() {
@@ -41,6 +47,9 @@ public class InjestJob {
         String query = getHiveFlatTableCreationQueryExternal(columnNames, fileTypes, file, "default","testTable","\\n",",");
 
         System.out.println("Query:" + query);
+
+        hiveTemplate.execute(query);
+
 
     }
 

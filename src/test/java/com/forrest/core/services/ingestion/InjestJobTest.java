@@ -1,12 +1,9 @@
 package com.forrest.core.services.ingestion;
 
 import au.com.bytecode.opencsv.CSVReader;
-<<<<<<< HEAD
-import com.forrest.web.config.StandaloneConfig;
+
 import org.junit.Before;
-=======
 import com.forrest.config.StandaloneConfig;
->>>>>>> 3ede43666ac9e9310c21f8dffbb1612370a54b12
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -38,13 +35,11 @@ public class InjestJobTest {
 
     @Test
     public void injestLocalFile() throws Exception {
-<<<<<<< HEAD
 
         if (job.injestLocalFile("/Users/atrask/Dropbox/ForRest/src/test/resources/data/test.csv"))
             assert true;
         else
             assert false;
-=======
         List<String[]> returnData = new LinkedList<String[]>();
 
         for(int i = 0;i<10;i++) {
@@ -61,7 +56,6 @@ public class InjestJobTest {
 
 
         verify(csvReader);
->>>>>>> 3ede43666ac9e9310c21f8dffbb1612370a54b12
     }
 
     @Test
