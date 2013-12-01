@@ -12,6 +12,7 @@
         <hadoop.version>1.0.4</hadoop.version>
         <hive.version>0.11.0</hive.version>
         <spring.hadoop.version>1.0.0.RELEASE</spring.hadoop.version>
+        <powermock.version>1.5.2</powermock.version>
     </properties>
 
     <dependencies>
@@ -81,7 +82,28 @@
             <version>3.1</version>
         </dependency>
 
-    <!-- Mongodb -->
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-module-junit4</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-mockito</artifactId>
+            <version>${powermock.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.powermock</groupId>
+            <artifactId>powermock-api-easymock</artifactId>
+            <version>${powermock.version}</version>
+        </dependency>
+
+
+        <!-- Mongodb -->
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-mongodb</artifactId>

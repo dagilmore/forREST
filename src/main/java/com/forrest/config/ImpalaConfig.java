@@ -23,18 +23,18 @@ public class ImpalaConfig {
 
     //JDBC Client Config
     @Bean
-    public HiveDriver hiveDriver() {
+    public HiveDriver impalaDriver() {
         return new HiveDriver();
     }
 
     @Bean
-    public DataSource hiveDataSource() throws ClassNotFoundException, IllegalAccessException, InstantiationException, SQLException {
-        return new SimpleDriverDataSource(hiveDriver(), env.getProperty("impala.url"));
+    public DataSource impalaDataSource() throws ClassNotFoundException, IllegalAccessException, InstantiationException, SQLException {
+        return new SimpleDriverDataSource(impalaDriver(), env.getProperty("impala.url"));
     }
 
     @Bean
-    public JdbcTemplate hiveTemplate() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-        JdbcTemplate hiveTemplate = new JdbcTemplate(hiveDataSource());
+    public JdbcTemplate impalaTemplate() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+        JdbcTemplate hiveTemplate = new JdbcTemplate(impalaDataSource());
         return hiveTemplate;
     }
 
