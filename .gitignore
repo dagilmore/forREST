@@ -16,3 +16,4 @@ data/
 #hive metastore and such
 metastore_db/
 TempStatsStore/
+derby.log
