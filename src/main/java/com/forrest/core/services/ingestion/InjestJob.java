@@ -4,6 +4,7 @@ import au.com.bytecode.opencsv.CSVReader;
 import com.forrest.core.repositories.HiveRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -16,6 +17,7 @@ import java.util.List;
  * @author David Gilmore
  * @date 11/30/13
  */
+@Service
 public class InjestJob {
 
     @Autowired
