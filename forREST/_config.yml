@@ -1,0 +1,4 @@
+name: forREST
+baseurl: /forREST
+markdown: redcarpet
+pygments: true
