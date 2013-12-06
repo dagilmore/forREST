@@ -34,7 +34,6 @@
             <version>3.1.0</version>
         </dependency>
 
-
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
@@ -48,13 +47,20 @@
             <version>${spring.version}</version>
         </dependency>
 
+    <!-- Java byte code assist -->
+
+        <dependency>
+            <groupId>javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.12.1.GA</version>
+        </dependency>
+
         <dependency>
             <groupId>asm</groupId>
             <artifactId>asm-all</artifactId>
             <version>2.1</version>
         </dependency>
 
-        <!-- JavaConfig need this library -->
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
