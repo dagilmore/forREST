@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
  * @date 11/30/13
  */
 @Configuration
-@ComponentScan("com.forrest")
+@ComponentScan("com.forrest.core")
 public class StandaloneConfig {
 }
