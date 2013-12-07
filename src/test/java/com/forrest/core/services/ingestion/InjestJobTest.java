@@ -19,9 +19,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author David Gilmore
- * @date 11/30/13
- */
+* @author David Gilmore
+* @date 11/30/13
+*/
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = StandaloneConfig.class, loader = AnnotationConfigContextLoader.class)
 public class InjestJobTest {
