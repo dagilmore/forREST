@@ -47,7 +47,11 @@
             <version>${spring.version}</version>
         </dependency>
 
+<<<<<<< HEAD
         <!-- Java byte code assist -->
+=======
+    <!-- Java byte code assist -->
+>>>>>>> a3bdceeb1b3bfd655054799c82ce880c8d51b0c1
 
         <dependency>
             <groupId>javassist</groupId>
@@ -242,13 +246,6 @@
             <groupId>org.jacorb</groupId>
             <artifactId>jacorb-services</artifactId>
             <version>3.3</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.nativelibs4java</groupId>
-            <artifactId>jnaerator-runtime</artifactId>
-            <version>0.12-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
