@@ -47,12 +47,6 @@
             <version>${spring.version}</version>
         </dependency>
 
-<<<<<<< HEAD
-        <!-- Java byte code assist -->
-=======
-    <!-- Java byte code assist -->
->>>>>>> a3bdceeb1b3bfd655054799c82ce880c8d51b0c1
-
         <dependency>
             <groupId>javassist</groupId>
             <artifactId>javassist</artifactId>
