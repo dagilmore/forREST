@@ -47,7 +47,11 @@
             <version>${spring.version}</version>
         </dependency>
 
+<<<<<<< HEAD
+        <!-- Java byte code assist -->
+=======
     <!-- Java byte code assist -->
+>>>>>>> a3bdceeb1b3bfd655054799c82ce880c8d51b0c1
 
         <dependency>
             <groupId>javassist</groupId>
@@ -199,6 +203,57 @@
             <artifactId>tika-parsers</artifactId>
             <version>1.4</version>
         </dependency>
+
+
+        <!-- Scala Dependencies -->
+
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.10.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml</groupId>
+            <artifactId>jackson-module-scala</artifactId>
+            <version>1.9.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scalanlp</groupId>
+            <artifactId>breeze_2.10</artifactId>
+            <version>0.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scalanlp</groupId>
+            <artifactId>breeze-viz_2.10</artifactId>
+            <version>0.5.2</version>
+        </dependency>
+
+        <!-- DDR dependencies -->
+
+        <dependency>
+            <groupId>org.jacorb</groupId>
+            <artifactId>jacorb</artifactId>
+            <version>3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jacorb</groupId>
+            <artifactId>jacorb-idl-compiler</artifactId>
+            <version>3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jacorb</groupId>
+            <artifactId>jacorb-services</artifactId>
+            <version>3.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>colt</groupId>
+            <artifactId>colt</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+
     </dependencies>
 
     <repositories>
@@ -206,16 +261,75 @@
             <id>morphia</id>
             <url>http://morphia.googlecode.com/svn/mavenrepo/</url>
         </repository>
-    </repositories>
+        <repository>
+            <id>SonatypeSnapshots</id>
+            <name>Sonatype Snapshots</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>SonatypeReleases</id>
+            <name>Sonatype Releases</name>
+            <url>https://oss.sonatype.org/content/repositories/releases/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>scala-tools.org</id>
+            <name>Scala-tools Maven2 Repository</name>
+            <url>http://scala-tools.org/repo-releases</url>
+        </repository>
+        <repository>
+            <id>cloudera</id>
+            <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+        </repository>
 
+
+        <!-- jnaerator -->
+        <repository>
+            <id>sonatype</id>
+            <name>Sonatype OSS Snapshots Repository</name>
+            <url>http://oss.sonatype.org/content/groups/public</url>
+        </repository>
+        <!-- For old snapshots, please use groupId `com.jnaerator` and the following repo -->
+        <repository>
+            <id>nativelibs4java-repo</id>
+            <url>http://nativelibs4java.sourceforge.net/maven</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <!-- more jnaerator -->
+            <id>sonatype</id>
+            <name>Sonatype OSS Snapshots Repository</name>
+            <url>http://oss.sonatype.org/content/groups/public</url>
+        </pluginRepository>
+        <!-- For old snapshots, please use groupId `com.jnaerator` and the following repo -->
+        <pluginRepository>
+            <id>nativelibs4java-repo</id>
+            <url>http://nativelibs4java.sourceforge.net/maven</url>
+        </pluginRepository>
+
+        <pluginRepository>
+            <id>scala-tools.org</id>
+            <name>Scala-tools Maven2 Repository</name>
+            <url>http://scala-tools.org/repo-releases</url>
+        </pluginRepository>
+    </pluginRepositories>
     <build>
         <finalName>ForRest</finalName>
         <plugins>
+
+            <plugin>
+                <groupId>com.nativelibs4java</groupId>
+                <artifactId>maven-jnaerator-plugin</artifactId>
+                <version>0.12-SNAPSHOT</version>
+            </plugin>
+
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -225,6 +339,12 @@
                         <include>**/*Tests.java</include>
                     </includes>
                 </configuration>
+            </plugin>
+            <plugin>
+
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+
             </plugin>
         </plugins>
     </build>

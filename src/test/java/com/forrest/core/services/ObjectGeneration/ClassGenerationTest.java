@@ -9,9 +9,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.support.AnnotationConfigContextLoader;
 
 /**
+<<<<<<< HEAD
+* @author David Gilmore
+* @date 12/6/13
+*/
+=======
  * @author David Gilmore
  * @date 12/6/13
  */
+>>>>>>> a3bdceeb1b3bfd655054799c82ce880c8d51b0c1
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes=StandaloneConfig.class, loader=AnnotationConfigContextLoader.class)
 public class ClassGenerationTest {
