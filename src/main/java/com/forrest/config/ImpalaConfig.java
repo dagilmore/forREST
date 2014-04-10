@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author David Gilmore
  * @date 11/30/13
  */
-@PropertySource(value={"classpath:impala.properties"})
+@PropertySource(value={"classpath:datasource.properties"})
 public class ImpalaConfig {
 
     @Autowired
@@ -37,5 +37,4 @@ public class ImpalaConfig {
         JdbcTemplate hiveTemplate = new JdbcTemplate(impalaDataSource());
         return hiveTemplate;
     }
-
 }

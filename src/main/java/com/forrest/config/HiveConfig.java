@@ -15,7 +15,7 @@ import java.sql.SQLException;
  * @author David Gilmore
  * @date 11/30/13
  */
-@PropertySource(value={"classpath:hive.properties"})
+@PropertySource(value={"classpath:datasource.properties"})
 public class HiveConfig {
 
     @Autowired

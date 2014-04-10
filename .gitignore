@@ -2,6 +2,7 @@
 .idea/
 *.iml
 *.iws
+*.ipr
 
 # Mac
 .DS_Store
@@ -12,6 +13,7 @@ target/
 
 #data
 data/
+out/
 
 #hive metastore and such
 metastore_db/

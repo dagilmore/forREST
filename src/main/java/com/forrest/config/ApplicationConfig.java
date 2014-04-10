@@ -12,6 +12,6 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @ComponentScan(basePackages = { "com.forrest.core" })
-@Import({ HiveConfig.class, ImpalaConfig.class, MongoConfig.class })
+@Import({ HiveConfig.class, ImpalaConfig.class, CubeDataConfig.class })
 public class ApplicationConfig {
 }

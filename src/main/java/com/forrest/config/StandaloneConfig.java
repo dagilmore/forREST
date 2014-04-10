@@ -1,6 +1,5 @@
 package com.forrest.config;
 
-import org.apache.hive.jdbc.HiveDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +17,7 @@ import java.sql.SQLException;
 public class StandaloneConfig {
 
     private DataSource dataSource() {
-        return new HiveDataSource();
+        return new org.apache.hadoop.hive.jdbc.HiveDataSource();
     }
 
     @Bean

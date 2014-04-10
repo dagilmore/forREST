@@ -20,7 +20,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
  */
 @EnableMongoRepositories(basePackages = "com.forrest")
 @PropertySource(value={"classpath:mongo.properties"})
-public class MongoConfig extends AbstractMongoConfiguration {
+public class CubeDataConfig extends AbstractMongoConfiguration {
 
     @Autowired
     Environment env;

@@ -8,7 +8,7 @@
     <name>ForRest</name>
 
     <properties>
-        <spring.version>3.2.4.RELEASE</spring.version>
+        <spring.version>4.0.3.RELEASE</spring.version>
         <hadoop.version>1.0.4</hadoop.version>
         <hive.version>0.11.0</hive.version>
         <spring.hadoop.version>1.0.0.RELEASE</spring.hadoop.version>
